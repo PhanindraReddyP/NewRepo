@@ -27,7 +27,8 @@ jobs:
           echo ${{ github.workspace }}
           ls -lart /home/runner/work/NewRepo/NewRepo
           sudo docker build -t tom .
-          cat ~/GH_TOKEN.txt | sudo docker login docker.pkg.github.com -u PhanindraReddyP --password-stdin
+          cp TOKEN.txt ~
+          cat ~/TOKEN.txt | sudo docker login docker.pkg.github.com -u PhanindraReddyP --password-stdin
           sudo docker tag tom docker.pkg.github.com/wiproorg/newrepo/tom:1.0
           sudo docker tag tom docker.pkg.github.com/wiproorg/newrepo/tom:latest
           sudo docker push docker.pkg.github.com/wiproorg/newrepo/tom:1.0
